@@ -7,10 +7,18 @@ export const getCurrencyList = () => {
     };
 };
 
-export const getCurrencySuccess = (data) => {
+export const getCurrencyListSuccess = (data) => {
     return {
         type: actionTypes.GET_CURRENCY_LIST_SUCCESS,
-        data: data,
+        currencyList: data,
+        loading: false
+    };
+};
+
+export const getCurrencyRatesSuccess = (data) => {
+    return {
+        type: actionTypes.GET_CURRENCY_RATES_SUCCESS,
+        currentData: data,
         loading: false
     };
 };
@@ -26,19 +34,24 @@ export const getCurrencyFail = (error) => {
 export const getCurrencyStart = () => {
     return dispatch => {
         dispatch(getCurrencyList());
+        let parseStringList = require('xml2js').parseString;
         let parseString = require('xml2js').parseString;
-        axios({
-            method: "GET",
-            url: `${'https://cors-anywhere.herokuapp.com/'}http://old.lb.lt/webservices/fxrates/FxRates.asmx/getCurrentFxRates?tp=eu`,
-            headers: { 'content-type': 'application/x-www-form-urlencoded' }
-        }).then (function (response) {
-            parseString(response.data, function (err, data) {   
-                dispatch(getCurrencySuccess(data.FxRates.FxRate))
-            }); 
-        }).catch (error => {
-            console.log(error);
+        axios.all([
+            axios.get(`${'https://cors-anywhere.herokuapp.com/'}http://old.lb.lt/webservices/fxrates/FxRates.asmx/getCurrentFxRates?tp=eu`),
+            axios.get(`${'https://cors-anywhere.herokuapp.com/'}http://old.lb.lt/webservices/fxrates/FxRates.asmx/getCurrencyList`)
+          ])
+          .then(axios.spread((currentRates, allCurrencies) => {
+            parseStringList(currentRates.data, function (err, data) {
+             dispatch(getCurrencyListSuccess(data.FxRates.FxRate))
+            });
+            parseString(allCurrencies.data, function (err, data) { 
+                dispatch(getCurrencyRatesSuccess(data.CcyTbl.CcyNtry))
+            });
+            
+          })).catch (error => {
             dispatch(getCurrencyFail(error));
-        });
+            });
+        
     }
 
 }

@@ -1,7 +1,8 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    data: null,
+    currentData: null,
+    currencyList: null,
     loading: true,
     error: null
 }
@@ -16,7 +17,14 @@ const reducer = (state = initialState, action) => {
         case actionTypes.GET_CURRENCY_LIST_SUCCESS:
             return {
                 ...state,
-                data: action.data,
+                currencyList: action.currencyList,
+                loading: false,
+                error: null
+            };
+        case actionTypes.GET_CURRENCY_RATES_SUCCESS:
+            return {
+                ...state,
+                currentData: action.currentData,
                 loading: false,
                 error: null
             };

@@ -11,7 +11,7 @@ import getResultsReducer from './store/reducers/getResults';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-    CurrencyList: getCurrencyReducer,
+    currencyList: getCurrencyReducer,
     results: getResultsReducer
 });
 

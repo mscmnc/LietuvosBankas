@@ -38,19 +38,19 @@ class Header extends Component {
 
 
     render () {
-        let CurrencyListData = null;
+        let currencyListData = null;
         let screen = <Spinner/>;
 
-        if (!this.props.loading && this.props.CurrencyListData !== null && this.props.error == null) {
-            CurrencyListData = this.props.CurrencyListData.map(( list, index) => 
+        if (!this.props.loading && this.props.currencyListData !== null && this.props.error == null) {
+            currencyListData = this.props.currencyListData.map(( list, index) => 
                 <option key={index}  value={list.CcyAmt[1].Ccy[0]}>{list.CcyAmt[1].Ccy[0]}</option>
             );
 
             screen = (
                 <div size="10" className="currency-select-box" >
                     <select className="select-box-results" id='currencySymbol' onChange={this.currencyChange}>
-                        <option>Jūsų pasirinkimas</option>
-                        {CurrencyListData} 
+                        <option value={'USD'}>Jūsų pasirinkimas</option>
+                        {currencyListData} 
                     </select>
                 </div>
             );
@@ -81,11 +81,11 @@ class Header extends Component {
       
                         <div className="currency-select-date-box">
                             <span>NUO </span>
-                            <input type="date" id="dateFrom" required onChange={this.dateFromChange}></input>
+                            <input type="date" id="dateFrom" onChange={this.dateFromChange}></input>
                         </div>
                         <div className="currency-select-date-box"> 
                             <span>IKI </span>
-                            <input type="date" id="dateTo" required onChange={this.dateToChange} ></input>
+                            <input type="date" id="dateTo" onChange={this.dateToChange} ></input>
                         </div> 
                         <div>
                             <button onClick={this.GetResults} disabled={!this.state.currency || !this.state.dateTo || !this.state.dateFrom }  > Search</button>
@@ -101,9 +101,9 @@ class Header extends Component {
 
 const mapStateToProps = state => {
     return {
-        CurrencyListData: state.CurrencyList.data,
-        loading: state.CurrencyList.loading,
-        error: state.CurrencyList.error
+        currencyListData: state.currencyList.currencyList,
+        loading: state.currencyList.loading,
+        error: state.currencyList.error
     }
 }
 

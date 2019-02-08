@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ErrorMessage from '../UI/ErrorMessage';
-import Spinner from '../UI/Spinner/Spinner';
+import ErrorMessage from '../ErrorMessage';
+import Spinner from '../Spinner/Spinner';
 
-class Table extends Component {
+export class Table extends Component {
 
     render() {
 
@@ -87,11 +87,6 @@ class Table extends Component {
             tableScreen = <Spinner/>;
         }
 
-
-
-
-
-
         return(
             <div className="currencyInfoblock-table">
                 {tableScreen}
@@ -106,10 +101,8 @@ const mapStateToProps = state => {
         resultsLoading: state.results.loading,
         resultsError: state.results.error,
         currentData: state.currencyList.currentData,
-        currencyListData: state.currencyList.currencyList,
-        
+        currencyListData: state.currencyList.currencyList        
     };
 }
-
 
 export default connect(mapStateToProps)(Table);

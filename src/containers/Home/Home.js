@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
-// import $ from 'jquery';
-import Header from '../../components/UI/Header';
-import Table from '../../components/UI/Table';
+import Header from '../../components/UI/Header/Header';
+import Table from '../../components/UI/Table/Table';
 
 import './Home.scss';
 

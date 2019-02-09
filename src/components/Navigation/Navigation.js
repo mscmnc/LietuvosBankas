@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ErrorMessage from '../ErrorMessage';
-import Spinner from '../Spinner/Spinner';
-import * as actions from '../../../store/actions/index';
+import ErrorMessage from '../UI/ErrorMessage';
+import Spinner from '../UI/Spinner';
+import * as actions from '../../store/actions/index';
+import Button from '../UI/Button';
+import Input from '../UI/Input';
 
 
-export class Header extends Component {
+export class Navigation extends Component {
 
     constructor(props) {
         super(props);
@@ -47,9 +49,9 @@ export class Header extends Component {
             );
 
         screen = (
-            <div size="10" className="currency-select-box" >
-                <select className="select-box-results" id='currencySymbol' onChange={this.currencyChange}>
-                    <option value={'USD'}>Jūsų pasirinkimas</option>
+            <div size="10" className="infoBlock-navigation-block--currency-box" >
+                <select className="currency-box-results" id='currencySymbol' onChange={this.currencyChange}>
+                    <option >Currency</option>
                     {currencyListData} 
                 </select>
             </div>
@@ -62,32 +64,16 @@ export class Header extends Component {
         }
 
         return (
-        <div className="currencyInfoblock-header">
-            <div className="currencyInfoblock-header--text" >
-                <h2>Euro ir užsienio valiutų santykiai</h2>
-            </div>
-            <div className="currencyInfoblock-selectbox">
-                <div className="currency-box"><h2>Pasirinkti valiutą:</h2>
-                    {screen}
-                </div>                
-                <div className="currency-box">
-                    <h3>Pasirinkti periodą:</h3>
-                    <div className="currency-select-date" >      
-                        <div className="currency-select-date-box">
-                            <span>NUO </span>
-                            <input type="date" id="dateFrom" onChange={this.dateFromChange}></input>
-                        </div>
-                        <div className="currency-select-date-box"> 
-                            <span>IKI </span>
-                            <input type="date" id="dateTo" onChange={this.dateToChange} ></input>
-                        </div> 
-                        <div>
-                            <button onClick={this.GetResults} disabled={!this.state.currency || !this.state.dateTo || !this.state.dateFrom }  > Search</button>
-                        </div>
-                    </div>  
+            <div className="infoBlock-navigation">
+                <div className="infoBlock-navigation-block">
+                    <Input className="infoBlock-navigation-block--calendarFrom" type="date" id="dateFrom" onChange={this.dateFromChange}/>   
+                    <Input className="infoBlock-navigation-block--calendarTo" type="date" id="dateTo" onChange={this.dateToChange}/>
+                    <div className="infoBlock-navigation-block--currency">
+                        {screen}
+                    </div>
+                    <Button className="infoBlock-navigation-block--button" type="submit" title="Search" onClick={this.GetResults} disabled={!this.state.dateFrom || !this.state.dateTo || !this.state.currency}/>
                 </div>
-            </div>  
-        </div>        
+            </div>
         );
     }
 } 
@@ -107,4 +93,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

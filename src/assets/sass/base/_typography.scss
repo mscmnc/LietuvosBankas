@@ -1,0 +1,13 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;   
+    box-sizing: border-box;
+    font-weight: 300;  
+}
+
+h1 {
+    font-weight: 300;
+
+    @include respond(mob) {
+        font-size: 1.5rem;
+    }
+}

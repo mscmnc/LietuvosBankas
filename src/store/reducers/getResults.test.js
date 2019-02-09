@@ -5,7 +5,7 @@ describe('Get currency reducer', () => {
     it('should return the initial state', () => {
         expect(reducer(undefined, {})).toEqual({
             data: null,
-            loading: false,
+            loading: true,
             error: null
         });
     });;
@@ -13,11 +13,12 @@ describe('Get currency reducer', () => {
     it('after success axios calling, it should get some data', () => {
         expect(reducer({
             data: null,
-            loading: false,
+            loading: true,
             error: null
         }, {
             type: actionTypes.GET_RESULTS_SUCCESS,
-            data: { data: 'some data'}
+            data: { data: 'some data'},
+            loading: false,
         })).toEqual({
             data: { data: 'some data'},
             loading: false,
@@ -27,11 +28,12 @@ describe('Get currency reducer', () => {
     it('it should set erorr message if there is an error', () => {
         expect(reducer({
             data: null,
-            loading: false,
+            loading: true,
             error: null
         }, {
             type: actionTypes.GET_RESULTS_FAIL,
-            error: { error: 'some error'}
+            error: { error: 'some error'},
+            loading: false,
         })).toEqual({
             data: null,
             loading: false,

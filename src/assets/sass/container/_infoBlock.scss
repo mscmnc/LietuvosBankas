@@ -1,0 +1,137 @@
+.infoBlock {
+    text-align: center;
+    
+        &-header {
+            height: 25vh;
+            background-image: linear-gradient(to right, rgba($color-green-dark, 0.8), rgba($color-green-light, 0.8)), url("/assets/img/background.jpg");
+            background-size: cover;            
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            text-align: center;
+
+                &--text {
+                    align-self: center;
+                    margin: 0 auto;                    
+                    color: $color-white;                    
+                }
+        }
+
+        &-navigation {
+            margin: 3rem 8rem 3rem 8rem;
+
+                @include respond(laptop) {
+                    margin: 1rem 8rem 1rem 8rem;
+                }
+
+                @include respond(tab) {
+                    margin: 1rem 2rem 1rem 2rem;
+                }
+
+                @include respond(mob) {
+                    margin: 0.5rem 0rem;
+                }
+
+            &-block {
+                display: flex;
+                justify-content: space-between;
+
+                    @include respond(laptop) {
+                        flex-wrap: wrap;                        
+                    }
+
+                    &--calendarFrom, &--calendarTo, &--button {
+                        width: 15%;
+                        text-align: left;
+
+                            @include respond(laptop) {
+                                width: 48%;    
+                                margin-top: 10px;                      
+                            }
+
+                            @include respond(mob) {
+                                width: 100%;
+                            }
+                        
+                    }
+
+                    &--calendarFrom, &--calendarTo {
+                        input {
+                            height: 100%;
+                            width: 100%;
+                            border: none;
+                            padding-left: 10px;
+
+                                @include respond(laptop) {
+                                    height: 40px;                        
+                                }
+                        }
+                    }
+
+                    &--currency {
+                        width: 40%;
+
+                            @include respond(laptop) {
+                                width: 48%;
+                                margin-top: 10px;   
+                            }
+
+                            @include respond(mob) {
+                                width: 100%;
+                            }
+
+                        &-box select {
+                            width: 100%;
+                            height: 40px;
+                            border: none;
+                            background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right $color-white;
+                            -webkit-appearance: none;
+                            background-position-x: 98%;
+                            padding-left: 10px;                             
+                        }
+                    }
+
+                    &--button button {
+                            cursor: pointer;
+                            width: 100%;
+                            height: 40px; 
+                            color: $color-white;
+                            background-image: linear-gradient(to bottom, $color-green-light 0%,  $color-green-dark 100%);
+                            border: none;
+
+                            &:disabled {
+                                opacity: 0.6;
+                                cursor: not-allowed;
+                        }
+                    }
+            }
+        }
+
+        &-table {
+            margin: 3rem 8rem 3rem 8rem;
+            background-color: $color-white;
+
+                @include respond(laptop) {
+                    margin: 2rem 8rem 1rem 8rem;
+                }
+
+                @include respond(tab) {
+                    margin: 1rem 2rem 1rem 2rem;
+                }
+
+                
+                @include respond(mob) {
+                    margin: 0;
+                }
+
+                &--heading {
+                    background-color: $color-grey;
+                    color: $color-white;
+                }
+        }
+}
+
+
+
+
+  

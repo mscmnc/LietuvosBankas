@@ -1,3 +1,10 @@
 @import "abstracts/variables";
+@import "abstracts/mixins";
 
-@import "../../components/UI/Spinner/Spinner.scss";
+@import "base/base";
+@import "base/typography";
+
+@import "components/calendar";
+@import "components/spinner";
+
+@import "container/infoBlock";

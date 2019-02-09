@@ -1,9 +1,9 @@
 import React from 'react';
-import { configure, shallow, mount } from 'enzyme';
+import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { Table } from './Table';
-import Spinner from '../../UI/Spinner/Spinner';
-import ErrorMessage from '../ErrorMessage';
+import ErrorMessage from '../UI/ErrorMessage';
+import Spinner from '../UI/Spinner';
 
 
 configure({adapter: new Adapter()});
@@ -19,7 +19,7 @@ describe('<Table/>', () => {
     });
 
     it('should render <ErrorMessage/> component if there is an Error', () => { 
-        wrapper.setProps({resultsError: true});
+        wrapper.setProps({resultsError: true, resultsLoading: false });
         expect(wrapper.find(ErrorMessage)).toHaveLength(1);
     });
 

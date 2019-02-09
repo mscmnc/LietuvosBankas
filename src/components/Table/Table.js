@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ErrorMessage from '../ErrorMessage';
-import Spinner from '../Spinner/Spinner';
+import ErrorMessage from '../UI/ErrorMessage';
+import Spinner from '../UI/Spinner';
 
 export class Table extends Component {
 
@@ -10,7 +10,7 @@ export class Table extends Component {
         let results = [];
         let tableScreen = null;
 
-        if (!this.props.resultsLoading && this.props.results !== null && this.props.resultsError == null) {
+        if (this.props.resultsLoading && this.props.results !== null && this.props.resultsError == null) {
             results = null;
             let units = [];
             let percent = [];            
@@ -31,7 +31,7 @@ export class Table extends Component {
 
             tableScreen = (
                 <table className="table table-hover">
-                    <thead>
+                    <thead className="infoBlock-table--heading">
                         <tr>
                         <th scope="col">Date</th>
                         <th scope="col">Proportion</th>
@@ -45,7 +45,7 @@ export class Table extends Component {
                 </table>
             );
 
-        } else if (!this.props.resultsLoading && this.props.currentData !== null && this.props.resultsError == null) {
+        } else if (this.props.resultsLoading && this.props.currentData !== null && this.props.resultsError == null) {
             
             let currencyCode = {};
             let currencyRate = {};
@@ -68,27 +68,29 @@ export class Table extends Component {
             });
             
             tableScreen = (
-                <table className="table table-hover">
-                    <thead>
-                        <tr>
-                        <th scope="col">Currency name</th>
-                        <th scope="col">Currency code</th>
-                        <th scope="col">Proportion</th>
-                        </tr>
-                    </thead>
-                    <tbody className="table-results">
-                        {results}
-                    </tbody>              
-                </table>
+                <div>
+                    <table className="table table-hover">                    
+                        <thead className="infoBlock-table--heading"  >
+                            <tr>
+                            <th scope="col">Currency name</th>
+                            <th scope="col">Currency code</th>
+                            <th scope="col">Proportion</th>
+                            </tr>                        
+                        </thead>
+                        <tbody className="table-results">
+                            {results}
+                        </tbody>              
+                    </table>
+                </div>
             );
-        } else if (this.props.resultsError) {
+        } else if (this.props.resultsLoading) {
+            tableScreen = <Spinner/>;            
+        } else {            
             tableScreen = <ErrorMessage/>;
-        } else {
-            tableScreen = <Spinner/>;
         }
 
         return(
-            <div className="currencyInfoblock-table">
+            <div className="infoBlock-table">
                 {tableScreen}
             </div> 
         );
@@ -101,7 +103,8 @@ const mapStateToProps = state => {
         resultsLoading: state.results.loading,
         resultsError: state.results.error,
         currentData: state.currencyList.currentData,
-        currencyListData: state.currencyList.currencyList        
+        currencyListData: state.currencyList.currencyList,   
+        currencyListLoading: state.currencyList.currencyListLoading      
     };
 }
 

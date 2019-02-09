@@ -1,16 +1,16 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { Header } from './Header';
-import Spinner from '../Spinner/Spinner';
-import ErrorMessage from '../ErrorMessage';
+import { Navigation } from './Navigation';
+import ErrorMessage from '../UI/ErrorMessage';
+import Spinner from '../UI/Spinner';
 
 configure({adapter: new Adapter()});
 
-describe('<Header/>', () => {
+describe('<Navigation/>', () => {
     let wrapper;
     beforeEach(() => {
-        wrapper = shallow(<Header onGetCurrencyList={() => {}} loading={true} error={null} currencyListData={null}/>);
+        wrapper = shallow(<Navigation onGetCurrencyList={() => {}} loading={true} error={null} currencyListData={null}/>);
     });
 
     it('should render <Spinner/> element if loading is true', () => {

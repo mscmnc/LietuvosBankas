@@ -2,7 +2,7 @@
   "name": "lb",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/mscmnc/lietuvosbankas",
+  "homepage": "http://mscmnc.github.io/lietuvosbankas",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.2.1",

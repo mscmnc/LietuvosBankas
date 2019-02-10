@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import ErrorMessage from '../UI/ErrorMessage';
 import Spinner from '../UI/Spinner';
 
 export class Table extends Component {
 
     render() {
-
         let results = [];
         let tableScreen = null;
 
-        if (this.props.resultsLoading && this.props.results !== null && this.props.resultsError == null) {
+        if (!this.props.resultsLoading && this.props.results !== null && this.props.resultsError == null) {
             results = null;
             let units = [];
             let percent = [];            
@@ -45,7 +45,7 @@ export class Table extends Component {
                 </table>
             );
 
-        } else if (this.props.resultsLoading && this.props.currentData !== null && this.props.resultsError == null) {
+        } else if (!this.props.resultsLoading && this.props.currentData !== null && this.props.resultsError == null) {
             
             let currencyCode = {};
             let currencyRate = {};
@@ -83,10 +83,10 @@ export class Table extends Component {
                     </table>
                 </div>
             );
-        } else if (this.props.resultsLoading) {
-            tableScreen = <Spinner/>;            
+        } else if (this.props.resultsError !== null) {            
+            tableScreen = <ErrorMessage/>;            
         } else {            
-            tableScreen = <ErrorMessage/>;
+            tableScreen = <Spinner/>;
         }
 
         return(
@@ -104,8 +104,15 @@ const mapStateToProps = state => {
         resultsError: state.results.error,
         currentData: state.currencyList.currentData,
         currencyListData: state.currencyList.currencyList,   
-        currencyListLoading: state.currencyList.currencyListLoading      
     };
 }
+
+Table.propTypes = {
+    results: PropTypes.array,
+    resultsLoading: PropTypes.bool,
+    resultsError: PropTypes.array,
+    currentData: PropTypes.array,
+    currencyListData:PropTypes.array
+};
 
 export default connect(mapStateToProps)(Table);

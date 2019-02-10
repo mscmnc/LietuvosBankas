@@ -2,6 +2,7 @@
   "name": "lb",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/mscmnc/lietuvosbankas",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
@@ -9,6 +10,7 @@
     "enzyme-adapter-react-16": "^1.9.1",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.7",
+    "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
@@ -19,13 +21,16 @@
     "xml2js": "^0.4.19"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "react-start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "compile:sass": "node-sass src/assets/sass/main.scss src/assets/css/main.css -w --output-style expanded ",
     "prefix": "postcss --use autoprefixer -b \"last 10 versions\" src/assets/css/main.css -o src/assets/css/main.prefix.css",
-    "compress:css": "node-sass src/assets/css/main.prefix.css src/style.css --output-style compressed"
+    "compress:css": "node-sass src/assets/css/main.prefix.css src/style.css --output-style compressed",
+    "start": "npm-run-all --parallel react-start compile:sass",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

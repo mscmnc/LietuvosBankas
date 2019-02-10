@@ -3,7 +3,7 @@
     
         &-header {
             height: 25vh;
-            background-image: linear-gradient(to right, rgba($color-green-dark, 0.8), rgba($color-green-light, 0.8)), url("/assets/img/background.jpg");
+            background-image: linear-gradient(to right, rgba($color-green-dark, 0.8), rgba($color-green-light, 0.8)), url("../img/background.jpg");
             background-size: cover;            
             background-position: center;
             background-repeat: no-repeat;
@@ -89,7 +89,7 @@
                             background-position-x: 98%;
                             padding-left: 10px;                             
                         }
-                    }
+                    } 
 
                     &--button button {
                             cursor: pointer;

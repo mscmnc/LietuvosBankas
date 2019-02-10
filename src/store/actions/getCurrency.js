@@ -10,24 +10,23 @@ export const getCurrencyList = () => {
 export const getCurrencyListSuccess = (data) => {
     return {
         type: actionTypes.GET_CURRENCY_LIST_SUCCESS,
-        currencyList: data,
-        loading: false
+        currencyList: data
+
     };
 };
 
 export const getCurrencyRatesSuccess = (data) => {
     return {
         type: actionTypes.GET_CURRENCY_RATES_SUCCESS,
-        currentData: data,
-        loading: false
+        currentData: data
+
     };
 };
 
 export const getCurrencyFail = (error) => {
     return {
         type: actionTypes.GET_CURRENCY_LIST_FAIL,
-        error: error,
-        loading: false
+        error: error
     };
 };
 

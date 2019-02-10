@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ErrorMessage from '../UI/ErrorMessage';
 import Spinner from '../UI/Spinner';
 import * as actions from '../../store/actions/index';
+import PropTypes from 'prop-types';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
 
@@ -91,6 +92,12 @@ const mapDispatchToProps = dispatch => {
         onGetCurrencyList: () => dispatch(actions.getCurrencyStart()),
         onGetResults: (currency, dateFrom, dateTo) => dispatch(actions.getResultsStart(currency, dateFrom, dateTo))
     };
+};
+
+Navigation.propTypes = {
+    currencyListData: PropTypes.array,
+    loading: PropTypes.bool,
+    error: PropTypes.any
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

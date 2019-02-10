@@ -10,16 +10,14 @@ export const getResults = () => {
 export const getResultsSuccess = (data) => {
     return {
         type: actionTypes.GET_RESULTS_SUCCESS,
-        data: data,
-        loading: false
+        data: data
     };
 };
 
 export const getResultsFail = (error) => {
     return {
         type: actionTypes.GET_RESULTS_FAIL,
-        error: error,
-        loading: false
+        error: error
     };
 };
 

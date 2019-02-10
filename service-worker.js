@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/lietuvosbankas/precache-manifest.5c11f8ab19766403617fcbd1b448456d.js"
+  "/LietuvosBankas/precache-manifest.7238a00b6ec8760016af5537fb6d94f7.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/lietuvosbankas/index.html", {
+workbox.routing.registerNavigationRoute("/LietuvosBankas/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

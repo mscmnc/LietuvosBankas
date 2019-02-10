@@ -1,15 +1,16 @@
 {
-  "main.css": "/mscmnc/lietuvosbankas/static/css/main.df9c7db2.chunk.css",
-  "main.js": "/mscmnc/lietuvosbankas/static/js/main.c7ba2c2d.chunk.js",
-  "main.js.map": "/mscmnc/lietuvosbankas/static/js/main.c7ba2c2d.chunk.js.map",
+  "main.css": "/mscmnc/lietuvosbankas/static/css/main.22fe13e7.chunk.css",
+  "main.js": "/mscmnc/lietuvosbankas/static/js/main.01827731.chunk.js",
+  "main.js.map": "/mscmnc/lietuvosbankas/static/js/main.01827731.chunk.js.map",
   "static/css/1.bb42a244.chunk.css": "/mscmnc/lietuvosbankas/static/css/1.bb42a244.chunk.css",
   "static/js/1.596a9269.chunk.js": "/mscmnc/lietuvosbankas/static/js/1.596a9269.chunk.js",
   "static/js/1.596a9269.chunk.js.map": "/mscmnc/lietuvosbankas/static/js/1.596a9269.chunk.js.map",
   "runtime~main.js": "/mscmnc/lietuvosbankas/static/js/runtime~main.f90a79c1.js",
   "runtime~main.js.map": "/mscmnc/lietuvosbankas/static/js/runtime~main.f90a79c1.js.map",
-  "static/css/main.df9c7db2.chunk.css.map": "/mscmnc/lietuvosbankas/static/css/main.df9c7db2.chunk.css.map",
+  "static/media/main.css": "/mscmnc/lietuvosbankas/static/media/background.a27f35e8.jpg",
+  "static/css/main.22fe13e7.chunk.css.map": "/mscmnc/lietuvosbankas/static/css/main.22fe13e7.chunk.css.map",
   "static/css/1.bb42a244.chunk.css.map": "/mscmnc/lietuvosbankas/static/css/1.bb42a244.chunk.css.map",
   "index.html": "/mscmnc/lietuvosbankas/index.html",
-  "precache-manifest.8debba4cbc9907a46a8de494708e0380.js": "/mscmnc/lietuvosbankas/precache-manifest.8debba4cbc9907a46a8de494708e0380.js",
+  "precache-manifest.d3e96c848514fd2ba2632cb2136eba26.js": "/mscmnc/lietuvosbankas/precache-manifest.d3e96c848514fd2ba2632cb2136eba26.js",
   "service-worker.js": "/mscmnc/lietuvosbankas/service-worker.js"
 }

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import App from './containers/App';
+import App from './App';
 import getCurrencyReducer from './store/reducers/getCurrency';
 import getResultsReducer from './store/reducers/getResults';
 

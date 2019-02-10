@@ -45,9 +45,9 @@ export class Navigation extends Component {
         let screen = <Spinner/>;
 
         if (!this.props.loading && this.props.currencyListData !== null && this.props.error == null) {
-            currencyListData = this.props.currencyListData.map(( list, index) => 
-                <option key={index}  value={list.CcyAmt[1].Ccy[0]}>{list.CcyAmt[1].Ccy[0]}</option>
-            );
+            let list = this.props.currencyListData.map( rez=> rez.CcyAmt[1].Ccy[0] );
+            list.sort();
+            currencyListData = list.map(( rez, index) => <option key={index} value={rez}>{rez}</option>);
 
         screen = (
             <div size="10" className="infoBlock-navigation-block--currency-box" >

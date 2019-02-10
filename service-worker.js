@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/LietuvosBankas/precache-manifest.7238a00b6ec8760016af5537fb6d94f7.js"
+  "/LietuvosBankas/precache-manifest.d902c85d8335204d32d6882efe5b894b.js"
 );
 
 workbox.clientsClaim();

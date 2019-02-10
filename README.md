@@ -6,7 +6,7 @@ This is one page web application created with HTML5, CSS3, SASS, ES6, ReactJS, R
  - Choose a period time and currency.
  - Click Search. 
 
-### Live demo here: [LietuvosBankasexchangeRates](https://mscmnc.github.io/lietuvosbankas)
+### Live demo here: [LietuvosBankasexchangeRates](https://mscmnc.github.io/LietuvosBankas)
 
  
 ## For development mode:

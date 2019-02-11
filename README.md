@@ -18,4 +18,10 @@ npm install
 npm start
 ``` 
 
+## To run tests:
+
+```python
+npm run test
+``` 
+
 Good luck! :)

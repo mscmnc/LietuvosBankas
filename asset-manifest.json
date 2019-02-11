@@ -1,7 +1,7 @@
 {
   "main.css": "/LietuvosBankas/static/css/main.5441437c.chunk.css",
-  "main.js": "/LietuvosBankas/static/js/main.829aaffe.chunk.js",
-  "main.js.map": "/LietuvosBankas/static/js/main.829aaffe.chunk.js.map",
+  "main.js": "/LietuvosBankas/static/js/main.b8afaa52.chunk.js",
+  "main.js.map": "/LietuvosBankas/static/js/main.b8afaa52.chunk.js.map",
   "static/css/1.bb42a244.chunk.css": "/LietuvosBankas/static/css/1.bb42a244.chunk.css",
   "static/js/1.596a9269.chunk.js": "/LietuvosBankas/static/js/1.596a9269.chunk.js",
   "static/js/1.596a9269.chunk.js.map": "/LietuvosBankas/static/js/1.596a9269.chunk.js.map",
@@ -11,6 +11,6 @@
   "static/css/main.5441437c.chunk.css.map": "/LietuvosBankas/static/css/main.5441437c.chunk.css.map",
   "static/css/1.bb42a244.chunk.css.map": "/LietuvosBankas/static/css/1.bb42a244.chunk.css.map",
   "index.html": "/LietuvosBankas/index.html",
-  "precache-manifest.7c02e225e69bf1740ce8c6ef71136ba3.js": "/LietuvosBankas/precache-manifest.7c02e225e69bf1740ce8c6ef71136ba3.js",
+  "precache-manifest.2471cd48eb7a04157b245e7922758caa.js": "/LietuvosBankas/precache-manifest.2471cd48eb7a04157b245e7922758caa.js",
   "service-worker.js": "/LietuvosBankas/service-worker.js"
 }

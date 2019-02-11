@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "829aaffe60daeb2fac34",
+    "revision": "b8afaa52171a0840c029",
     "url": "/LietuvosBankas/static/css/main.5441437c.chunk.css"
   },
   {
-    "revision": "829aaffe60daeb2fac34",
-    "url": "/LietuvosBankas/static/js/main.829aaffe.chunk.js"
+    "revision": "b8afaa52171a0840c029",
+    "url": "/LietuvosBankas/static/js/main.b8afaa52.chunk.js"
   },
   {
     "revision": "596a9269423cadb87d3a",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/LietuvosBankas/static/media/background.a27f35e8.jpg"
   },
   {
-    "revision": "c5ba429befc31f5efecffff53daf9d92",
+    "revision": "c063b44be682bf12d6e8c38c29f1d74b",
     "url": "/LietuvosBankas/index.html"
   }
 ];

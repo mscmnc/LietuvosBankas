@@ -110,7 +110,7 @@ const mapStateToProps = state => {
 Table.propTypes = {
     results: PropTypes.array,
     resultsLoading: PropTypes.bool,
-    resultsError: PropTypes.array,
+    resultsError: PropTypes.bool,
     currentData: PropTypes.array,
     currencyListData:PropTypes.array
 };

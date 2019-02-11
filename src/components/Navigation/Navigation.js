@@ -41,13 +41,18 @@ export class Navigation extends Component {
 
 
     render () {
-        let currencyListData = null;
+        let currencyListData = [];
+        let currencyList = {};
         let screen = <Spinner/>;
+        
 
-        if (!this.props.loading && this.props.currencyListData !== null && this.props.error == null) {
-            let list = this.props.currencyListData.map( rez=> rez.CcyAmt[1].Ccy[0] );
-            list.sort();
-            currencyListData = list.map(( rez, index) => <option key={index} value={rez}>{rez}</option>);
+        if (!this.props.loading && this.props.error == null && this.props.currentData !== null) {
+            for (let i = 0; i <= this.props.currentData.length-1; i++) {
+                currencyList[this.props.currentData[i].Ccy[0]] = this.props.currentData[i].CcyNm[1]._;
+            }
+            Object.keys(currencyList).forEach(function (key , index) {
+            currencyListData.push(<option key={index} value={currencyList[key]}>{currencyList[key]} ({[key]})</option>);                
+            }); 
 
         screen = (
             <div size="10" className="infoBlock-navigation-block--currency-box" >
@@ -81,9 +86,9 @@ export class Navigation extends Component {
 
 const mapStateToProps = state => {
     return {
-        currencyListData: state.currencyList.currencyList,
         loading: state.currencyList.loading,
-        error: state.currencyList.error
+        error: state.currencyList.error,
+        currentData: state.currencyList.currentData
     }
 }
 

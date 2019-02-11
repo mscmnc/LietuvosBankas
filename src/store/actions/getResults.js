@@ -30,8 +30,9 @@ export const getResultsStart = (currency, dateFrom, dateTo) => {
             url: `${'https://cors-anywhere.herokuapp.com/'}http://old.lb.lt/webservices/fxrates/FxRates.asmx/getFxRatesForCurrency?tp=eu&ccy=${currency}&dtFrom=${dateFrom}&dtTo=${dateTo}`,
             headers: { 'content-type': 'application/x-www-form-urlencoded' }
         }).then (function (response) {
+            
             parseString(response.data, function (err, data) {   
-                dispatch(getResultsSuccess(data.FxRates.FxRate))
+                dispatch(getResultsSuccess(data.FxRates))
             }); 
         }).catch (error => {
             dispatch(getResultsFail(error));

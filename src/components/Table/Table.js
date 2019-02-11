@@ -11,39 +11,45 @@ export class Table extends Component {
         let tableScreen = null;
 
         if (!this.props.resultsLoading && this.props.results !== null && this.props.resultsError == null) {
-            results = null;
-            let units = [];
-            let percent = [];            
-            let proportion = this.props.results.map( rez=> rez.CcyAmt[1].Amt[0] );
-            let date = this.props.results.map(rez => rez.Dt[0] );
+    
+                if(!this.props.results.hasOwnProperty('FxRate') ) {
+                    tableScreen = (<div>There is No data at this time period</div>);
+                } else {
+                    let fxRates = this.props.results.FxRate;
+                    results = null;
+                    let units = [];
+                    let percent = [];            
+                    let proportion = fxRates.map( rez=> rez.CcyAmt[1].Amt[0] );
+                    let date = fxRates.map(rez => rez.Dt[0] );
+    
+                    for(let i = 0; i<=proportion.length; i++) {
+                        units.push((proportion[i] - proportion[i+1]).toFixed(4));
+                        percent.push(((units[i] / proportion[i+1]) * 100).toFixed(4));
+                    }        
+    
+                    proportion.pop();
+                    date.pop();
+    
+                    results = proportion.map(( rslt, index) => 
+                        <tr key={index} ><td>{date[index]}</td><td>{rslt}</td><td>{units[index]}</td><td>{percent[index]}</td></tr>
+                    );   
 
-            for(let i = 0; i<=proportion.length; i++) {
-                units.push((proportion[i] - proportion[i+1]).toFixed(4));
-                percent.push(((units[i] / proportion[i+1]) * 100).toFixed(4));
-            }        
-
-            proportion.pop();
-            date.pop();
-
-            results = proportion.map(( rslt, index) => 
-                <tr key={index} ><td>{date[index]}</td><td>{rslt}</td><td>{units[index]}</td><td>{percent[index]}</td></tr>
-            );
-
-            tableScreen = (
-                <table className="table table-hover">
-                    <thead className="infoBlock-table--heading">
-                        <tr>
-                        <th scope="col">Date</th>
-                        <th scope="col">Proportion</th>
-                        <th scope="col">Change</th>
-                        <th scope="col">Change %</th>
-                        </tr>
-                    </thead>
-                    <tbody className="table-results">
-                        {results}
-                    </tbody>              
-                </table>
-            );
+                    tableScreen = (
+                        <table className="table table-hover">
+                            <thead className="infoBlock-table--heading">
+                                <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Proportion</th>
+                                <th scope="col">Change</th>
+                                <th scope="col">Change %</th>
+                                </tr>
+                            </thead>
+                            <tbody className="table-results">
+                                {results}
+                            </tbody>              
+                        </table>
+                    );
+                }        
 
         } else if (!this.props.resultsLoading && this.props.currentData !== null && this.props.resultsError == null) {
             
@@ -108,7 +114,7 @@ const mapStateToProps = state => {
 }
 
 Table.propTypes = {
-    results: PropTypes.array,
+    results: PropTypes.any,
     resultsLoading: PropTypes.bool,
     resultsError: PropTypes.bool,
     currentData: PropTypes.array,

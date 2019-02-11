@@ -51,7 +51,7 @@ export class Navigation extends Component {
                 currencyList[this.props.currentData[i].Ccy[0]] = this.props.currentData[i].CcyNm[1]._;
             }
             Object.keys(currencyList).forEach(function (key , index) {
-            currencyListData.push(<option key={index} value={currencyList[key]}>{currencyList[key]} ({[key]})</option>);                
+            currencyListData.push(<option key={index} value={[key]}>{currencyList[key]} ({[key]})</option>);                
             }); 
 
         screen = (

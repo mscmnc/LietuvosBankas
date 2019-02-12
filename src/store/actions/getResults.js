@@ -31,7 +31,8 @@ export const getResultsStart = (currency, dateFrom, dateTo) => {
             headers: { 'content-type': 'application/x-www-form-urlencoded' }
         }).then (function (response) {
             
-            parseString(response.data, function (err, data) {   
+            parseString(response.data, function (err, data) { 
+                console.log(data)  
                 dispatch(getResultsSuccess(data.FxRates))
             }); 
         }).catch (error => {

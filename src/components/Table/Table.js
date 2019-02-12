@@ -12,8 +12,8 @@ export class Table extends Component {
 
         if (!this.props.resultsLoading && this.props.results !== null && this.props.resultsError == null) {
     
-                if(!this.props.results.hasOwnProperty('FxRate') ) {
-                    tableScreen = (<div>There is No data at this time period</div>);
+                if(!this.props.results.hasOwnProperty('FxRate') || this.props.results.FxRate.length === 1  ) {
+                    tableScreen = (<div>There is no data at this time period</div>);
                 } else {
                     let fxRates = this.props.results.FxRate;
                     results = null;
@@ -32,7 +32,7 @@ export class Table extends Component {
     
                     results = proportion.map(( rslt, index) => 
                         <tr key={index} ><td>{date[index]}</td><td>{rslt}</td><td>{units[index]}</td><td>{percent[index]}</td></tr>
-                    );   
+                    );
 
                     tableScreen = (
                         <table className="table table-hover">

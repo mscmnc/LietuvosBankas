@@ -42,17 +42,15 @@ export class Navigation extends Component {
 
     render () {
         let currencyListData = [];
-        let currencyList = {};
-        let screen = <Spinner/>;
-        
+        let currencyList = [];
+        let screen = <Spinner/>;        
 
-        if (!this.props.loading && this.props.error == null && this.props.currentData !== null) {
-            for (let i = 0; i <= this.props.currentData.length-1; i++) {
-                currencyList[this.props.currentData[i].Ccy[0]] = this.props.currentData[i].CcyNm[1]._;
+        if (!this.props.loading && this.props.error == null && this.props.currencyList !== null) {
+            for (let i = 0; i <= this.props.currencyList.length-1; i++) {
+                currencyList.push(this.props.currencyList[i].CcyAmt[1].Ccy[0]); 
             }
-            Object.keys(currencyList).forEach(function (key , index) {
-            currencyListData.push(<option key={index} value={[key]}>{currencyList[key]} ({[key]})</option>);                
-            }); 
+        currencyList.sort();
+        currencyListData = currencyList.map(( rslt, index) => <option key={index} value={rslt}>{rslt}</option> ); 
 
         screen = (
             <div size="10" className="infoBlock-navigation-block--currency-box" >
@@ -88,7 +86,7 @@ const mapStateToProps = state => {
     return {
         loading: state.currencyList.loading,
         error: state.currencyList.error,
-        currentData: state.currencyList.currentData
+        currencyList: state.currencyList.currencyList
     }
 }
 
@@ -100,7 +98,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 Navigation.propTypes = {
-    currencyListData: PropTypes.array,
+    currencyList: PropTypes.array,
     loading: PropTypes.bool,
     error: PropTypes.any
 };
